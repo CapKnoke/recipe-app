@@ -4,10 +4,14 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tsc",
     "start": "node dist/server.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/server.js\""
+    "prestart": "npm run build:client && npm run build:server",
+    "dev": "concurrently \"npm run start:server\" \"npm run start:client\"",
+    "test": "npm test --prefix client",
+    "build:server": "npx tsc",
+    "build:client": "npm run build --prefix client",
+    "start:server": "concurrently \"npx tsc --watch\" \"nodemon -q dist/server.js\"",
+    "start:client": "npm start --prefix client"
   },
   "keywords": [],
   "author": "",

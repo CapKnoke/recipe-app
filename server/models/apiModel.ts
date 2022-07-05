@@ -1,6 +1,10 @@
 import qs, { ParsedQs } from 'qs';
 import axios, { AxiosResponse } from 'axios';
-import { query } from 'express';
+
+const formatQuery = (params: ParsedQs | null): string => {
+  const query = {...params, number: params?.number ? params?.number : 1 };
+  return `?${qs.stringify(query)}`;
+};
 
 const fetchData = async (url: string): Promise<AxiosResponse> => {
   const options = process.env.API_KEY ? { headers: { 'x-api-key': process.env.API_KEY } } : {};
@@ -18,19 +22,17 @@ export default {
     return result.data;
   },
   getRandom: async (params: ParsedQs | null): Promise<JSON> => {
-    const query = params ? {...params, number: params.number ? params.number : 1 } : null;
-    const url = `https://api.spoonacular.com/recipes/random${query ? `?${qs.stringify(query)}` : ''}`
+    const queryString = formatQuery(params);
+    const url = `https://api.spoonacular.com/recipes/random${queryString}`
     const result = await fetchData(url);
     return result.data.recipes;
   },
   search: async (params: ParsedQs | null): Promise<JSON> => {
-    const query = {...params, number: params?.number ? params?.number : 1 };
-    console.log(query);
-    console.log(params);
     if (!params?.query) {
       throw new Error('You must provide a search query');
     }
-    const url = `https://api.spoonacular.com/recipes/complexSearch${query ? `?${qs.stringify(query)}` : ''}`
+    const queryString = formatQuery(params);
+    const url = `https://api.spoonacular.com/recipes/complexSearch${queryString}`
     const result = await fetchData(url);
     return result.data.results;
   },

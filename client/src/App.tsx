@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const App = () => {
   const [connected, setConnected] = useState(null);
   const fetchData = async (): Promise<void> => {
     const response = await fetch('/api/recipes')
