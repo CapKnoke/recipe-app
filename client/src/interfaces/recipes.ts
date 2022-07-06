@@ -12,7 +12,7 @@ export interface Step {
   number: number,
   step: string,
   ingredients: Array<StepIngredient>,
-  equipment?: Array<StepEquipment>,
+  equipment: Array<StepEquipment>,
 }
 
 export interface Measures {
@@ -24,7 +24,7 @@ export interface Measures {
     amount: number,
     unit: string,
   }
-}
+};
 
 export interface Ingredient {
   id: number,
@@ -36,11 +36,7 @@ export interface RecipePreview {
   id: number,
   title: string,
   image: URL,
-  readyInMinutes: number,
-  veryHealthy: boolean,
-  vegan: boolean,
-  healthScore: number,
-  dishTypes: Array<string>,
+  imageType: string,
 };
 
 export interface Recipe {

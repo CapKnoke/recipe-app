@@ -24,5 +24,5 @@ app.use((err: Error, req: Request, res: Response, next: CallableFunction): void 
 });
 
 app.listen(port, (): void => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
+  console.log(`Server is running at http://localhost:${port}`);
 });

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { RecipePreview } from '../../interfaces/recipes';
-import { SearchParams } from '../../interfaces/api';
+import { SearchParams } from '../../../../server/interfaces/api';
 import recipeApi from '../../http/recipeApi';
 
 export const getSearchResults = createAsyncThunk(

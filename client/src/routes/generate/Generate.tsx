@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Search = () => {
+const Generate = () => {
   return (
     <section>
-      <h1>Search</h1>
+      <h1>Generate</h1>
     </section>
   )
 };
 
-export default Search;
+export default Generate;

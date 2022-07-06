@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Recipe } from '../../interfaces/recipes';
-import { RandomParams } from '../../interfaces/api';
+import { RandomParams } from '../../../../server/interfaces/api';
 import recipeApi from '../../http/recipeApi';
 
 export const getRecipeById = createAsyncThunk(

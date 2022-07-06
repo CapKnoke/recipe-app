@@ -1,5 +1,5 @@
 import qs from 'qs';
-import { SearchParams, RandomParams } from '../interfaces/api';
+import { SearchParams, RandomParams } from '../../../server/interfaces/api';
 import { Recipe, RecipePreview } from '../interfaces/recipes';
 
 export default {

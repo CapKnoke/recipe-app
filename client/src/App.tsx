@@ -17,6 +17,6 @@ const App = () => {
       <h1>{connected}</h1>
     </main>
   );
-}
+};
 
 export default App;
