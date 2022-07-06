@@ -11,7 +11,8 @@
     "build:server": "npx tsc",
     "build:client": "npm run build --prefix client",
     "start:server": "concurrently \"npx tsc --watch\" \"nodemon -q dist/server.js\"",
-    "start:client": "npm start --prefix client"
+    "start:client": "npm start --prefix client",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",

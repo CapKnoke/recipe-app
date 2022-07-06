@@ -13,7 +13,7 @@ const fetchData = async (url: string): Promise<AxiosResponse> => {
     throw new Error(JSON.parse(response.data));
   }
   return response;
-}
+};
 
 export default {
   get: async (id: string): Promise<JSON> => {
@@ -25,7 +25,7 @@ export default {
     const queryString = formatQuery(params);
     const url = `https://api.spoonacular.com/recipes/random${queryString}`
     const result = await fetchData(url);
-    return result.data.recipes;
+    return result.data.recipes[0];
   },
   search: async (params: ParsedQs | null): Promise<JSON> => {
     if (!params?.query) {
