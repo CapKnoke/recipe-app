@@ -7,7 +7,7 @@ export default {
   get: async (id: string): Promise<Recipe> => {
     const url = `https://api.spoonacular.com/recipes/${id}/information`;
     const response = await fetchData(url);
-    return formatRecipe(response.data)
+    return formatRecipe(response.data);
   },
   getRandom: async (params: ParsedQs | null): Promise<RecipePreview[]> => {
     const queryString = formatQuery(params);
