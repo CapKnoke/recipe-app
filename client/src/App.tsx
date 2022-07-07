@@ -9,7 +9,9 @@ const App = () => {
   return (
     <main className="App">
       <Header />
-      <Outlet />
+      <section className='main-content'>
+        <Outlet />
+      </section>
     </main>
   );
 };

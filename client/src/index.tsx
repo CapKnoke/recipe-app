@@ -12,6 +12,7 @@ import Search from './routes/search/Search';
 import Recipe from './routes/recipe/Recipe';
 import Overview from './routes/overview/Overview';
 import About from './routes/about/About';
+import Random from './routes/random/Random';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -27,6 +28,7 @@ root.render(
             <Route path="recipes" element={<Recipes />} >
               <Route path="search" element={<Search />} />
               <Route path=":id" element={<Recipe />} />
+              <Route path="random" element={<Random />} />
               <Route index element={<Overview />} />
             </Route>
           </Route>

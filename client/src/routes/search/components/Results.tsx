@@ -19,14 +19,14 @@ const Results = () => {
   if (error) {
     return (
       <>
-        <h4 className='error-text'>{errorMessage}</h4>
+        <h3 className='search-results__status-text'>{errorMessage}</h3>
       </>
     )
   }
   if (loading) {
     return (
       <>
-        <h4 className='loading-text'>Loading...</h4>
+        <h3 className='search-results__status-text'>Loading...</h3>
       </>
     )
   }

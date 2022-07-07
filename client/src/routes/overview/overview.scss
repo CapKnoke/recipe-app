@@ -1,0 +1,14 @@
+.featured {
+  max-width: 40rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-block: auto;
+  .preview-card {
+    max-width: 100%;
+    &__img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

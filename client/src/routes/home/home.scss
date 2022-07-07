@@ -8,4 +8,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  &__title {
+    margin-bottom: 2rem;
+    font-size: 24pt;
+  }
+  &__subtitle {
+    margin-top: 2rem;
+    font-size: 18pt;
+  }
+  .search-form {
+    &__field {
+      height: 3rem;
+      width: 15rem;
+      padding-inline: 1rem;
+      font-size: 16pt;
+    }
+    &__button {
+      height: 3rem;
+    }
+  }
 }
