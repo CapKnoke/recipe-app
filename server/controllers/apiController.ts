@@ -15,6 +15,11 @@ export default {
       .then(recipes => res.json(recipes))
       .catch(err => next(err));
   },
+  getOneRandomRecepie: async (req: Request, res: Response, next: CallableFunction): Promise<void> => {
+    apiModel.getOneRandom()
+      .then(recipes => res.json(recipes))
+      .catch(err => next(err));
+  },
   searchRecepies: async (req: Request, res: Response, next: CallableFunction): Promise<void> => {
     apiModel.search(req.query)
       .then(recipes => res.json(recipes))

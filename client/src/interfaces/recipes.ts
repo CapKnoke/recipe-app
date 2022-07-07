@@ -35,7 +35,7 @@ export interface Ingredient {
 export interface RecipePreview {
   id: number,
   title: string,
-  image: URL,
+  image: string,
   imageType: string,
 };
 
@@ -43,6 +43,7 @@ export interface Recipe {
   id: number,
   title: string,
   readyInMinutes: number,
+  image: string,
   ingredients: Array<Ingredient>,
   summary: string,
   instructions: string,

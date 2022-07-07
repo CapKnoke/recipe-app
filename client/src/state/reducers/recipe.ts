@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Recipe } from '../../interfaces/recipes';
-import { getRecipeById, getRandomRecipe } from '../actions/recipesActions';
+import { getRecipeById, getOneRandomRecipe } from '../actions/recipesActions';
 
 interface RecipeState {
   recipe: null | Recipe,
@@ -30,17 +30,17 @@ const recipeSlice = createSlice({
       .addCase(getRecipeById.pending, state => {
         state.loading = true;
       })
-      .addCase(getRandomRecipe.fulfilled, (state, action) => {
+      .addCase(getOneRandomRecipe.fulfilled, (state, action) => {
         state.recipe = action.payload;
         state.loading = false;
         state.error = false;
       })
-      .addCase(getRandomRecipe.rejected, (state, action) => {
+      .addCase(getOneRandomRecipe.rejected, (state, action) => {
         state.loading = false;
         state.error = true;
         state.errorMessage = action.error.message;
       })
-      .addCase(getRandomRecipe.pending, state => {
+      .addCase(getOneRandomRecipe.pending, state => {
         state.loading = true;
       })
   },

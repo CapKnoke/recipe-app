@@ -1,3 +1,5 @@
+import { RecipePreview } from "../../client/src/interfaces/recipes"
+
 export interface MeasuresResponse {
   us: {
     amount: number,
@@ -74,7 +76,7 @@ export interface RecipeResponse {
   string: number,
   sourceUrl: URL,
   openLicense: number,
-  image: URL,
+  image: string,
   imageType: string,
   summary: string,
   cuisines: string[],
@@ -94,8 +96,17 @@ export interface RecipeResponse {
 
 export interface SearchParams {
   query: string,
+  number?: number,
 };
 
 export interface RandomParams {
+  number?: number,
   tags?: string,
 };
+
+export interface SearchResults {
+  results: RecipePreview[]
+  number: number,
+  offset: number,
+  totalResults: number,
+}

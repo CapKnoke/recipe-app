@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Recipe } from '../../interfaces/recipes';
-import { RandomParams } from '../../../../server/interfaces/api';
 import recipeApi from '../../http/recipeApi';
 
 export const getRecipeById = createAsyncThunk(
@@ -14,10 +13,10 @@ export const getRecipeById = createAsyncThunk(
   },
 );
 
-export const getRandomRecipe = createAsyncThunk(
-  'recipe/random',
-  async (params: RandomParams): Promise<Recipe> => {
-    const result = await recipeApi.fetchRandom(params);
+export const getOneRandomRecipe = createAsyncThunk(
+  'recipe/oneRandom',
+  async (): Promise<Recipe> => {
+    const result = await recipeApi.fetchOneRandom();
     if (result.error) {
       throw new Error(result.error);
     }

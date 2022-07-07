@@ -3,13 +3,23 @@ import { RecipePreview } from '../../interfaces/recipes';
 import { getSearchResults } from '../actions/searchActions';
 
 interface SearcResultsState {
-  searchResults: null | Array<RecipePreview>,
+  recipes: null | Array<RecipePreview>,
+  number: number | null,
+  offset: number | null,
+  totalResults: number | null,
   loading: boolean,
   error: boolean,
   errorMessage: null | undefined | string,
 }
 
-const initialState = { searchResults: [], loading: false, error: false, errorMessage: null } as SearcResultsState;
+const initialState = {
+  recipes: [],
+  number: null,
+  offset: null,
+  totalResults: null,
+  loading: false,
+  error: false,
+  errorMessage: null } as SearcResultsState;
 
 const searchResultsReducer = createSlice({
   name: 'searchResults',
@@ -18,15 +28,22 @@ const searchResultsReducer = createSlice({
   extraReducers: builder => {
     builder
       .addCase(getSearchResults.fulfilled, (state, action) => {
-        state.searchResults = action.payload;
         state.loading = false;
         state.error = false;
+        state.errorMessage = null;
+        state.recipes = action.payload.results;
+        state.number = action.payload.number;
+        state.offset = action.payload.offset;
+        state.totalResults = action.payload.totalResults;
       })
       .addCase(getSearchResults.rejected, (state, action) => {
-        state.error = true;
+        state.loading = false;
         state.errorMessage = action.error.message;
+        state.error = true;
       })
       .addCase(getSearchResults.pending, state => {
+        state.error = false;
+        state.errorMessage = null;
         state.loading = true;
       })
   },

@@ -1,15 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { RecipePreview } from '../../interfaces/recipes';
-import { SearchParams } from '../../../../server/interfaces/api';
+import { SearchParams, SearchResults } from '../../../../server/interfaces/api';
 import recipeApi from '../../http/recipeApi';
 
 export const getSearchResults = createAsyncThunk(
   'searchResults/getResults',
-  async (params: SearchParams): Promise<RecipePreview[]> => {
-    const results = await recipeApi.fetchBySearch(params);
-    if (!results.length) {
+  async (params: SearchParams): Promise<SearchResults> => {
+    const response = await recipeApi.fetchBySearch(params);
+    if (!response.results.length) {
       throw new Error('No Results');
     }
-    return results;
+    return response;
   },
 );
