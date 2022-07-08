@@ -19,14 +19,14 @@ const Featured = () => {
   if (error) {
     return (
       <section className='featured'>
-        <h4 className='error-text'>{errorMessage}</h4>
+        <h4 className='featured__status-text'>{errorMessage}</h4>
       </section>
     )
   }
   if (loading) {
     return (
       <section className='featured'>
-        <h4 className='loading-text'>Loading...</h4>
+        <h4 className='featured__status-text'>Loading...</h4>
       </section>
     )
   }

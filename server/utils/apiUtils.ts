@@ -23,7 +23,7 @@ export const formatQuery = (params: ParsedQs | null): string => {
 };
 
 export const fetchData = async (url: string): Promise<AxiosResponse> => {
-  const options = process.env.API_KEY ? { headers: { 'x-api-key': process.env.API_KEY } } : {};
+  const options = process.env.ALT_API_KEY ? { headers: { 'x-api-key': process.env.ALT_API_KEY }} : {};
   const response = await axios(url, options)
   if (response.status !== 200) {
     throw new Error(JSON.parse(response.data));
@@ -89,4 +89,4 @@ export const formatRandom = (recipes: RecipeResponse[]): RecipePreview[] => {
     image: recipe.image,
     imageType: recipe.imageType,
   }))
-}
+};

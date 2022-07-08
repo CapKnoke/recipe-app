@@ -4,6 +4,9 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-block: auto;
+  &__status-text {
+    grid-column: 2;
+  }
   .preview-card {
     max-width: 100%;
     &__img {
