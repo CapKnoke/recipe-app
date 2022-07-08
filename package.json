@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "start": "node dist/server/server.js",
-    "prestart": "npm run build:client && npm run build:server",
+    "build": "npm run build:server",
     "dev": "concurrently --names \"server,client\" \"npm run start:server\" \"npm run start:client\"",
     "test": "npm test --prefix client",
     "build:server": "npx tsc",
